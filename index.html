@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Hello World!</h1>
+  <!-- All of the Node.js APIs are available in this renderer process. -->
+  We are using Node.js <script>document.write(process.versions.node)</script>,
+  Chromium <script>document.write(process.versions.chrome)</script>,
+  and Electron <script>document.write(process.versions.electron)</script>.
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container-fluid text-center">    
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <p><a href="#">Link</a></p>
+        <p><a href="#">Link</a></p>
+        <p><a href="#">Link</a></p>
+      </div>
+      <div class="col-sm-8 text-left"> 
+        <h1>Catalin si Iulian, cei mai smekeri barosani</h1>
+        <p>Vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala</p>
+        <hr>
+        <h3>HTTP REQUEST</h3>
+        <div class="form-group">
+          <label for="sel1">Request Type:</label>
+          <select class="form-control" id="requestMethod">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comment">URL</label>
+          <textarea class="form-control" rows="1" id="requestURL"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="btnEd">Send http request</button>
+        <h3>DATABASE QUERY</h3>
+        <div class="form-group">
+          <label for="sel1">Database connection:</label>
+          <select class="form-control" id="dbClientSelect">
+            <option value="POSTGRES">POSTGRES</option>
+            <option value="ORACLE">ORACLE</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="comment">QUERY</label>
+          <textarea class="form-control" rows="1" id="queryText"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="btnQuery">Execute Query</button>
+
+
+
+
+      </div>
+
+    </div>
+<!--     <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p id = "responseBody">Response </p>
+</footer>
+<script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+  </html>
