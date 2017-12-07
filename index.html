@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>Hello World!</h1>
+  <h1>Integration testing</h1>
   <!-- All of the Node.js APIs are available in this renderer process. -->
   We are using Node.js <script>document.write(process.versions.node)</script>,
   Chromium <script>document.write(process.versions.chrome)</script>,
@@ -45,58 +45,74 @@
         <p><a href="#">Link</a></p>
       </div>
       <div class="col-sm-8 text-left"> 
-        <h1>Catalin si Iulian, cei mai smekeri barosani</h1>
-        <p>Vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala vrajeala</p>
+        <div id="httpReq">  
+          <h3>HTTP REQUEST</h3>
+          <div class="form-group form-inline">
+            <label for="sel1">Request Type:</label>
+            <select class="form-control" id="requestMethod">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+            <label for="comment">URL</label>
+            <textarea class="form-control" rows="1" id="requestURL"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnEd">Send http request</button>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Request response</h3>
+            </div>
+            <div class="panel-body">
+              <p id = "responseBody">Response </p>
+            </div>
+          </div>
+        </div>
         <hr>
-        <h3>HTTP REQUEST</h3>
-        <div class="form-group">
-          <label for="sel1">Request Type:</label>
-          <select class="form-control" id="requestMethod">
-            <option value="GET">GET</option>
-            <option value="POST">POST</option>
-            <option value="PUT">PUT</option>
-            <option value="DELETE">DELETE</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="comment">URL</label>
-          <textarea class="form-control" rows="1" id="requestURL"></textarea>
-        </div>
-        <button type="button" class="btn btn-primary" id="btnEd">Send http request</button>
-        <h3>DATABASE QUERY</h3>
-        <div class="form-group">
-          <label for="sel1">Database connection:</label>
-          <select class="form-control" id="dbClientSelect">
-            <option value="POSTGRES">POSTGRES</option>
-            <option value="ORACLE">ORACLE</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="comment">QUERY</label>
-          <textarea class="form-control" rows="1" id="queryText"></textarea>
-        </div>
-        <button type="button" class="btn btn-primary" id="btnQuery">Execute Query</button>
+        <div id="dbQuer">
+          <h3>DATABASE QUERY</h3>
+          <div class="form-group form-inline">
+            <label for="sel1">Database Type:</label>
+            <select class="form-control" id="dbClientSelect">
+              <option value="POSTGRES">POSTGRES</option>
+              <option value="ORACLE">ORACLE</option>
+            </select>
+            <label for="comment">User</label>
+            <textarea class="form-control" rows="1" id="dbUser"></textarea>
+            <label for="comment">Host</label>
+            <textarea class="form-control" rows="1" id="dbHost"></textarea>
+            <label for="comment">Database</label>
+            <textarea class="form-control" rows="1" id="db"></textarea>
+            <label for="comment">Password</label>
+            <textarea class="form-control" rows="1" id="dbPassword"></textarea>
+            <p></p>
+            <label for="comment">Port</label>
+            <textarea class="form-control" rows="1" id="dbPort"></textarea>
 
-
-
-
+          </div>
+          <div class="form-group">
+            <label for="comment">QUERY</label>
+            <textarea class="form-control" rows="1" id="queryText"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnQuery">Execute Query</button>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Request response</h3>
+            </div>
+            <div class="panel-body">
+              <p id = "resultRows">Response </p>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
-<!--     <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div> -->
   </div>
-</div>
 
-<footer class="container-fluid text-center">
-  <p id = "responseBody">Response </p>
-</footer>
+
+  <footer class="container-fluid text-center">
+<!--   <p id = "responseBody">Response </p>
+--></footer>
 <script>
       // You can also require other files to run in this process
       require('./renderer.js')

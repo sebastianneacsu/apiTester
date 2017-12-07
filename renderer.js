@@ -39,14 +39,19 @@ function executeQuery(){
 	var e = document.getElementById("dbClientSelect");
 	var selectedDBClient = document.getElementById("dbClientSelect").options[e.selectedIndex].value;
 	var queryInput = document.getElementById("queryText").value;
+	var dbUserValue = document.getElementById("dbUser").value;
+	var dbHostValue = document.getElementById("dbHost").value;
+	var dbDatabaseValue = document.getElementById("db").value;
+	var dbPasswordValue = document.getElementById("dbPassword").value;
+	var dbPortValue = document.getElementById("dbPort").value;
 
 	const { Client } = require('pg');
 	const client = new Client({
-		user: 'postgres',
-		host: 'localhost',
-		database: 'db71u',
-		password: 'secretpassword',
-		port: 5432,
+		user: dbUserValue,
+		host: dbHostValue,
+		database: dbDatabaseValue,
+		password: dbPasswordValue,
+		port: dbPortValue,
 	});
 
 	client.connect((err) => {
@@ -61,9 +66,14 @@ function executeQuery(){
 		console.log(err, res);
 		console.log("Error = " + err);
 		console.log("Rows = " + JSON.stringify(res.rows));
-		document.getElementById("responseBody").innerHTML = "QUERY RESULT:  " +  JSON.stringify(res.rows);
+		document.getElementById("resultRows").innerHTML = "QUERY RESULT:  " +  JSON.stringify(res.rows);
 		client.end()
 	})
 }
 document.querySelector('#btnQuery').addEventListener('click', executeQuery);
 document.getElementById("queryText").defaultValue = "SELECT * from rules.rule limit 5";
+document.getElementById("dbUser").defaultValue = "postgres";
+document.getElementById("dbHost").defaultValue = "localhost";
+document.getElementById("db").defaultValue = "db71u";
+document.getElementById("dbPassword").defaultValue = "secretpassword";
+document.getElementById("dbPort").defaultValue = 5432;
