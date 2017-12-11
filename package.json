@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
     "node-gyp": "^3.6.2",
     "pg": "^7.4.0",
     "python": "0.0.4",

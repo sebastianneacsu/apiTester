@@ -66,7 +66,7 @@ function executeQuery(){
 		console.log(err, res);
 		console.log("Error = " + err);
 		console.log("Rows = " + JSON.stringify(res.rows));
-		document.getElementById("resultRows").innerHTML = "QUERY RESULT:  " +  JSON.stringify(res.rows);
+		document.getElementById("resultRows").innerHTML = JSON.stringify(res.rows, null, 4);
 		client.end()
 	})
 }
